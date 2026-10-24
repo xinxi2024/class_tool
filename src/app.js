@@ -239,7 +239,7 @@ if(!$('.mobile-overlay')){const overlay=document.createElement('div');overlay.cl
 window.addEventListener('hashchange',()=>{const wanted=location.hash.slice(1)||'home';if(routeNames[wanted]){if(route==='undercover'&&wanted!=='undercover')hideSpyWord();route=wanted;render()}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)hideSpyWord()});window.addEventListener('pagehide',hideSpyWord);window.addEventListener('pageshow',()=>{if(route==='undercover')hideSpyWord()});window.addEventListener('keydown',event=>{if(event.key==='Escape'){closeModal();exitDisplay();$('.sidebar').classList.remove('open');$('.mobile-overlay').classList.remove('show')}});document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement)exitDisplay()});
 if('serviceWorker' in navigator&&location.protocol!=='file:')navigator.serviceWorker.register(new URL('../sw.js',import.meta.url),{scope:new URL('../',import.meta.url).pathname}).catch(()=>{});
-const pref=state('preferences',{});if(pref.theme==='dark'||(pref.theme!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark');
+const pref=state('preferences',{});if(pref.theme==='dark')document.documentElement.classList.add('dark');
 if(!routeNames[location.hash.slice(1)])history.replaceState(null,'',location.pathname+location.search+'#home');else route=location.hash.slice(1);if(route==='undercover')hideSpyWord();
 render();
 if(ticking)clearInterval(ticking);ticking=setInterval(timerTick,500);

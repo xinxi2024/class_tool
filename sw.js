@@ -1,4 +1,4 @@
-const CACHE = 'classkit-static-v6';
+const CACHE = 'classkit-static-v7';
 const FILES = ['./', 'index.html', 'styles.css', 'src/app.js', 'src/core.js', 'src/store.js', 'data/words.json', 'data/config.json'];
 
 self.addEventListener('install', event => {
