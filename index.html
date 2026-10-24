@@ -7,7 +7,7 @@
   <meta name="description" content="不绑定班级和人数的轻量活动工具箱：分组、抽签、小游戏、计时、积分、流程和投票。">
   <title>ClassKit · 班级活动工具箱</title>
   <link rel="stylesheet" href="./styles.css?v=5">
-  <script type="module" src="./src/app.js?v=7"></script>
+  <script type="module" src="./src/app.js?v=9"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -27,7 +27,7 @@
     </aside>
     <div class="mobile-top"><button class="icon-button" id="menuToggle" aria-label="打开导航">☰</button><a class="brand" href="#home"><span class="brand-icon">C</span><span>ClassKit</span></a><button class="icon-button" id="themeToggle" aria-label="切换深浅色">◐</button></div>
     <main id="main" class="main" tabindex="-1">
-      <header class="topbar"><div><div class="breadcrumb">CLASSKIT <span>/</span> <span id="crumb">概览</span></div><h1 id="pageTitle">活动工具箱</h1></div><div class="top-actions"><button class="button button-quiet" id="importButton">导入备份</button><button class="button button-quiet" id="exportButton">导出备份</button><button class="icon-button desktop-theme" id="themeToggleDesktop" aria-label="切换深浅色">◐</button><input id="importFile" type="file" accept="application/json,.json" hidden></div></header>
+      <header class="topbar"><div><div class="breadcrumb">CLASSKIT <span>/</span> <span id="crumb">概览</span></div><h1 id="pageTitle">活动工具箱</h1></div><div class="top-actions"><button class="button button-quiet" id="alarmStop" type="button" hidden>停止提示音</button><button class="button button-quiet" id="importButton">导入备份</button><button class="button button-quiet" id="exportButton">导出备份</button><button class="icon-button desktop-theme" id="themeToggleDesktop" aria-label="切换深浅色">◐</button><input id="importFile" type="file" accept="application/json,.json" hidden></div></header>
       <div id="app" class="content" aria-live="polite"></div>
       <footer class="page-footer"><span>ClassKit · 轻量、离线、可复用</span><span id="storageStatus">你的配置保存在本设备</span></footer>
     </main>
