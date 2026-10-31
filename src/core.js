@@ -53,14 +53,17 @@ export function compareGuess(guess, target, min, max) {
   return value < target ? { status: 'low', min: value + 1, max } : { status: 'high', min, max: value - 1 };
 }
 
-export function assignUndercover(players, pair, undercoverCount = 1, random = Math.random) {
+export function assignUndercover(players, pair, undercoverCount = 1, random = Math.random, { spyWordBlank = false } = {}) {
   const count = Number(players); const spies = Number(undercoverCount);
   if (!Number.isInteger(count) || count < 3 || count > 50) throw new RangeError('玩家人数需为 3–50 人。');
   if (!Array.isArray(pair) || pair.length < 2) throw new RangeError('卧底词库需要至少一组词语。');
   if (!Number.isInteger(spies) || spies < 1 || spies >= count) throw new RangeError('卧底人数需至少 1 人，且少于玩家人数。');
   const order = shuffle(Array.from({ length: count }, (_, i) => i), random);
   const spySet = new Set(order.slice(0, spies));
-  return Array.from({ length: count }, (_, i) => ({ player: i + 1, role: spySet.has(i) ? 'undercover' : 'civilian', word: pair[spySet.has(i) ? 1 : 0] }));
+  return Array.from({ length: count }, (_, i) => {
+    const undercover = spySet.has(i);
+    return { player: i + 1, role: undercover ? 'undercover' : 'civilian', word: undercover && spyWordBlank ? '' : pair[undercover ? 1 : 0] };
+  });
 }
 
 export function exportGroups(groups) {
